@@ -1,4 +1,4 @@
-<include a CircleCI status badge, here>
+[![CircleCI](https://circleci.com/gh/mhutton86/project5-operationalize-machine-learning-service.svg?style=svg)](https://circleci.com/gh/mhutton86/project5-operationalize-machine-learning-service)
 
 ## Project Overview
 

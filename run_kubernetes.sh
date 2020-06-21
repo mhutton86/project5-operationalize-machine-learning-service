@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
+# This script depends on a running kubernetes cluster. For local development and testing, use minikube.
 
 # This tags and uploads an image to Docker Hub
-
 username=mhutton86
 dockername=boston-house-price-prediction
 
