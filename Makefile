@@ -6,13 +6,22 @@
 # (Optional) Build a simple integration test
 
 dependencies:
-    sudo wget -O /usr/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64
-    sudo chmod +x /usr/bin/hadolint
+	# Hadolint
+	sudo wget -O /usr/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64
+	sudo chmod +x /usr/bin/hadolint
+
+	# Kubernetes
+	sudo wget -O /usr/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+	sudo chmod +x /usr/bin/kubectl
+
+	# Minikube
+	sudo wget -O /usr/bin/minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+	sudo chmod +x /usr/bin/minikube
 
 setup:
 	# Create python virtualenv & source it
 	python3 -m venv ~/.devops
-	source ~/.devops/bin/activate
+	. ~/.devops/bin/activate
 
 install:
 	# This should be run from inside a virtualenv
@@ -32,4 +41,5 @@ lint:
 	# This should be run from inside a virtualenv
 	pylint --disable=R,C,W1203 app.py
 
+first-time: dependencies setup install
 all: install lint test
