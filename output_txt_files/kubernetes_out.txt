@@ -1,1 +1,9 @@
-<paste log output from Kubernetes-mediated prediction, here>
+$ ./run_kubernetes.sh 
+Flag --generator has been deprecated, has no effect and will be removed in the future.
+Error from server (AlreadyExists): pods "boston-house-price-prediction" already exists
+NAME                            READY   STATUS    RESTARTS   AGE
+boston-house-price-prediction   1/1     Running   0          33m
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+

@@ -20,6 +20,9 @@ kubectl run ${dockername}\
 # List kubernetes pods
 kubectl get pods
 
+# Wait until the pod is ready
+while [[ $(kubectl get pods -l app=${dockername} -o 'jsonpath={..status.conditions[?(@.type=="Ready")].status}') != "True" ]]; do echo "waiting for pod" && sleep 1; done
+
 # Step 4:
 # Forward the container port to a host
 kubectl port-forward ${dockername} 8000:80
